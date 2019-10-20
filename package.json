@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/slonebox/friend-finder/issues"
   },
-  "homepage": "https://github.com/slonebox/friend-finder#readme"
+  "homepage": "https://github.com/slonebox/friend-finder#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
