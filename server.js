@@ -1,6 +1,5 @@
 // DEPENDENCIES
 var express = require("express");
-var path = require("path");
 
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
@@ -15,6 +14,7 @@ app.use(express.json());
 
 // ROUTER
 require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 // LISTENER
 app.listen(PORT, function() {
