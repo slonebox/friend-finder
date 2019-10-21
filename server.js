@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // ROUTER
-require("/api/friends")(app);
+require("./app/routing/apiRoutes")(app);
 
 // LISTENER
 app.listen(PORT, function() {
