@@ -1,11 +1,10 @@
-var friendsArray = [
+module.exports = friendsArray = [
     {
     name:"Fiona",
-    photo:"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    photo:"https://www.instagram.com/p/BUABSRzhmih/?utm_source=ig_web_copy_link",
     scores:[
         5,5,5,5,5,5,5,5,5,5
       ]
   }
 ];
 
-module.exports = friendsArray;
