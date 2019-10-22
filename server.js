@@ -1,5 +1,6 @@
 // DEPENDENCIES
 var express = require("express");
+require("dotenv").config();
 
 // EXPRESS CONFIGURATION
 // This sets up the basic properties for our express server
