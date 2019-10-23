@@ -159,11 +159,11 @@
                 shows up.</h5>
             <select class="chosen select" id="q10">
                 <option value></option>
-                <option value="1">1 (strongly disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (strongly agree)</option>
+                <option value=1>1 (strongly disagree)</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5 (strongly agree)</option>
             </select>
             <br>
             <br>
@@ -183,8 +183,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script>
-        var friendsArray = require("friendsArray");
-
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
@@ -211,11 +209,23 @@
                 function (data) {
                     if (data) {
                         console.log("New friend added.")
-                        console.log(friendsArray)
                     }
                     else {
                         console.log("Uh oh, something weird happened.");
                     };
+                //Clears the form
+                    $("#name").val("");
+                    $("#photo").val("");  
+                    $("#q1").val("");
+                    $("#q2").val("");
+                    $("#q3").val("");
+                    $("#q4").val("");
+                    $("#q5").val("");
+                    $("#q6").val("");
+                    $("#q7").val("");
+                    $("#q8").val("");
+                    $("#q9").val("");
+                    $("#q10").val("");
                 });
         });
     </script>
