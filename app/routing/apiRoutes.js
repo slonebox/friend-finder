@@ -12,7 +12,14 @@ module.exports = function(app) {
     });
   
     app.post("/api/friends", function(req, res) {
-        friendsArray.push(req.body);
+        var newFriend = {
+          name: req.body.name,
+          photo: req.body.photo,
+          scores: req.body.scores.map(x => parseFloat(x))
+        }; 
+
+
+        friendsArray.push(newFriend);
         res.json(true);
         console.log(friendsArray);
     });

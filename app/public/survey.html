@@ -154,16 +154,16 @@
             <br>
             <br>
             <!-- Question 10 -->
-            <h3>Question 10-</h3>
+            <h3>Question 10</h3>
             <h5>You want to invite both Spider-Man and Woody Allen to your wedding, but you also hope neither of them
                 shows up.</h5>
-            <select class="chosen select" id="q10">
+            <select class="chosen select" id="q10" type="number">
                 <option value></option>
-                <option value=1>1 (strongly disagree)</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-                <option value=5>5 (strongly agree)</option>
+                <option value="1" type="number">1 (strongly disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (strongly agree)</option>
             </select>
             <br>
             <br>
@@ -183,25 +183,26 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script>
+
         $("#submit").on("click", function (event) {
             event.preventDefault();
+
+            var q1 = parseFloat($("#q1").val().trim());
+            var q2 = Math.floor($("#q1").val().trim());
+            var q3 = Math.floor($("#q1").val().trim());
+            var q4 = Math.floor($("#q1").val().trim());
+            var q5 = Math.floor($("#q1").val().trim());
+            var q6 = Math.floor($("#q1").val().trim());
+            var q7 = Math.floor($("#q1").val().trim());
+            var q8 = Math.floor($("#q1").val().trim());
+            var q9 = Math.floor($("#q1").val().trim());
+            var q10 = Math.floor($("#q1").val().trim());
 
             //Stores user inputs in new variable
             var newFriend = {
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
-                scores: [
-                    $("#q1").val().trim(),
-                    $("#q2").val().trim(),
-                    $("#q3").val().trim(),
-                    $("#q4").val().trim(),
-                    $("#q5").val().trim(),
-                    $("#q6").val().trim(),
-                    $("#q7").val().trim(),
-                    $("#q8").val().trim(),
-                    $("#q9").val().trim(),
-                    $("#q10").val().trim()
-                ]
+                scores: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
             };
 
             //POST route to add new friends to the array
