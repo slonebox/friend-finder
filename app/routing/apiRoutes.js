@@ -1,26 +1,48 @@
 var friendsArray = require("../data/friends.js");
 
-module.exports = function(app) {
-    // API GET and POST Requests
-    // Below code handles when users "visit" a page.
-    // In each of the below cases when a user visits a link
-    // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-    // ---------------------------------------------------------------------------
-  
-    app.get("/api/friends", function(req, res) {
-      res.json(friendsArray);
-    });
-  
-    app.post("/api/friends", function(req, res) {
-        var newFriend = {
-          name: req.body.name,
-          photo: req.body.photo,
-          scores: req.body.scores.map(x => parseFloat(x))
-        }; 
+module.exports = function (app) {
+  // API GET and POST Requests
+  // Below code handles when users "visit" a page.
+  // In each of the below cases when a user visits a link
+  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
+  // ---------------------------------------------------------------------------
+
+  app.get("/api/friends", function (req, res) {
+    res.json(friendsArray);
+  });
+
+  app.post("/api/friends", function (req, res) {
+    //Stores user inputs in a newobject, re-indexes user question scores as numbers
+    var newFriend = {
+      name: req.body.name,
+      photo: req.body.photo,
+      scores: req.body.scores.map(x => parseFloat(x))
+    };
+
+    //Function to find a best match
+    function bestMatch(newObj, array) {
+      var bestMatch;
+      var bestScore;
+      var totalDifference = 0;
+
+      //Logic that calculates total difference between two friends scores
+      for (i = 0; i < 10; i++) {
+        
+        var questionDifference = Math.abs(newObj.scores[i] - array[0].scores[i]);
+        totalDifference += questionDifference;
+      };
+
+    };
+
+    bestMatch(newFriend, friendsArray);
 
 
-        friendsArray.push(newFriend);
-        res.json(true);
-        console.log(friendsArray);
-    });
+    friendsArray.push(newFriend);
+    res.json(true);
+    console.log(friendsArray);
+  });
+
+
+
 };
+
