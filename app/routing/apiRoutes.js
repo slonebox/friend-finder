@@ -49,10 +49,12 @@ module.exports = function (app) {
     //Function called to determine best match
     var theBestMatch = bestMatch(newFriend, friendsArray);
 
-    //New user inputs pushed to array
+    //New user inputs pushed to array, Response returns the best match
     friendsArray.push(newFriend);
     res.status(200).json(theBestMatch);
     console.log(friendsArray);
+
+    //Display a modal with the data from the best match
   });
 
 };

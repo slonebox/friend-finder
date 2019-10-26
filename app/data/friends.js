@@ -1,7 +1,7 @@
 module.exports = friendsArray = [
     {
     name:"Fiona",
-    photo:"https://www.instagram.com/p/BUABSRzhmih/?utm_source=ig_web_copy_link",
+    photo:"http://cincinnatizoo.org/wp-content/uploads/2017/01/saturday-fiona.jpg",
     scores:[
         5,5,5,5,5,5,5,5,5,5
       ]

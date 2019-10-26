@@ -172,6 +172,17 @@
                     class="fa fa-check-circle"></i> Submit</button>
         </form>
         <hr>
+        <div id="the-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Your Best Match</h3>
+                <div id="modal-image">
+                    <img id="modal-match-image">
+                </div>
+                <h4 id="modal-match-name"></h4>
+            </div>
+        </div>
+
         <footer class="footer">
             <div class="container">
                 <p><a href="/api/friends">API Friends List</a> | <a
@@ -210,14 +221,27 @@
                 function (data) {
                     if (data) {
                         console.log("New friend added.")
-                        console.log("DATA: ", data);
+
+                        //Parses data of best match
+                        var bestMatch= JSON.parse(data);
+                        
+
+                        //Display the Modal
+                        $("#the-modal").show();
+
+                        //Populate the modal with data
+                        $("#modal-match-image").attr("src", bestMatch.photo);
+                        console.log("BEST MATCH PHOTO: ", bestMatch.photo);
+
+                        $("#modal-match-name").html(bestMatch.name);
+                        console.log("BEST MATCH NAME: ", bestMatch.name);
                     }
                     else {
                         console.log("Uh oh, something weird happened.");
                     };
-                //Clears the form
+                    //Clears the form
                     $("#name").val("");
-                    $("#photo").val("");  
+                    $("#photo").val("");
                     $("#q1").val("");
                     $("#q2").val("");
                     $("#q3").val("");
@@ -230,6 +254,17 @@
                     $("#q10").val("");
                 });
         });
+
+        //On-click functions to exit modal
+        $(".close").on("click", function (event){
+            $("#the-modal").hide();
+        });
+
+        window.onclick = function(event){
+            if (event.target == "#the-modal"){
+                $("#the-modal").hide();
+            };
+        };
     </script>
 </body>
 
