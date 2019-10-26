@@ -1,3 +1,4 @@
+/* MODAL ELEMENTS */
 .modal {
     display: none;
   position: fixed;
@@ -33,3 +34,10 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+#modal-match-image {
+  height: 200px;
+  max-height: 200px;
+  width: auto;
+  max-width: auto;
+}
