@@ -1,12 +1,8 @@
 var friendsArray = require("../data/friends.js");
 
 module.exports = function (app) {
-  // API GET and POST Requests
-  // Below code handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
-  // ---------------------------------------------------------------------------
 
+//Displays all the data input by previous users as a JSON
   app.get("/api/friends", function (req, res) {
     res.json(friendsArray);
   });
@@ -47,15 +43,15 @@ module.exports = function (app) {
       var bestScore = Math.min.apply(Math, allDifferences);
       var bestMatchIndex = allDifferences.indexOf(bestScore);
 
-      console.log("BEST MATCH: " + JSON.stringify(array[bestMatchIndex]));
+      return JSON.stringify(array[bestMatchIndex]);
     };
 
     //Function called to determine best match
-    bestMatch(newFriend, friendsArray);
+    var theBestMatch = bestMatch(newFriend, friendsArray);
 
     //New user inputs pushed to array
     friendsArray.push(newFriend);
-    res.json(true);
+    res.status(200).json(theBestMatch);
     console.log(friendsArray);
   });
 
